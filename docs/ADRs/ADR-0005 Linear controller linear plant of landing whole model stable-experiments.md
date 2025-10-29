@@ -29,6 +29,9 @@ very fast optimization
 
 
 Implementation notes:
+Sampling Time: 60 S
+Prediction Horizon: 10
+Control Horizon: 5
 
 A, B, E, P0 of Landing linearization as used
 

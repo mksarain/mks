@@ -33,6 +33,9 @@ Optimization was stable for takeoff and landing part only even with switching of
 
 
 Implementation notes:
+Sampling Time: 20 S
+Prediction Horizon: 10
+Control Horizon: 8
 
 In main script for initial conditions switching IC vectors were used which are picked by simulnik using from Workspace block.
 

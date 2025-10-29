@@ -24,15 +24,24 @@ Consequences:
 
 Enabled Subsystem worked but merging of results of These three Systems was not practical as optimization Status could not added due to These reasons.
 
-Takeoff 
+Takeoff (Stable)
+Sampling Time: 60 S
+Prediction Horizon: 10
+Control Horizon: 5
 
 As Simulation starts from Zero time after passing of enable subsytem time optimization Status remains same as last optimization Status for total Simulation time. 
 
-Cruise
+Cruise (Stable)
+Sampling Time: 20 S
+Prediction Horizon: 20
+Control Horizon: 8
 
 Optimization in cruise case as enable substem starts after some delay initial optimization of delay part is shown as Zero and after passing of enable subsytem time optimization Status remains same as last optimization Status for total Simulation time.
 
-Landing
+Landing (Stable)
+Sampling Time: 60 S
+Prediction Horizon: 12
+Control Horizon: 5
 
 Optimization in landing case as enable substem starts after some delay initial optimization of delay part is shown as Zero and after passing of enable subsytem time optimization Status remains same as last optimization Status for total Simulation time.
 

@@ -27,6 +27,9 @@ Optimization was stable for takeoff and landing part only
 
 
 Implementation notes:
+Sampling Time: 20 S
+Prediction Horizon: 20
+Control Horizon: 8
 
 Initial conditions: Landing initial conditions were used as they made whole model stable, no switchnig on initial conditions was done same as plant
 

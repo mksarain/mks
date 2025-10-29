@@ -35,13 +35,15 @@ nlobj.MD(4).Name = 'rho';
 % integration. While this example uses a nonlinear plant model, you can
 % also implement economic MPC using linear plant models.
 
- Ts = 20;
- nlobj.Ts = Ts;                                  % Sample time
- nlobj.Model.StateFcn = 'aircraft_dynamics_linear_cruise';
+
+ nlobj.Model.StateFcn = 'aircraft_dynamics_linear_landing';
  nlobj.Model.IsContinuousTime = true;
 
-u0 = [69980; 300000; 5.4805; 7.150];
-x0 = [52814776030872794621339/2111078349043945281000; 104094200346052350023/4282106184673317000; 0.95; 7429519190417529794477/301582621291992183000; 14970426814841764289/611729454953331000; 62413813461003262061339/2111078349043945281000; 115709353125739950023/4282106184673317000; 1317031521595249/55809639171000; 192210910256741628225757/6125247032447703303000; 18157083865504564289/611729454953331000; 1317031521595249/55809639171000; 29037669531913/1240214203800; 1405698391771/60204573000]; 
+ %landing
+ x0 = [93988057444394599308387229/4422589792359066198000000; 14175896344014406900981/690059259222822000000; 0.95; 642296550198010131218710603/30958128546513463386000000; 99794188918686328306867/4830414814559754000000; 20; 748871653711516104483208603/30958128546513463386000000; 109523475430206270118867/4830414814559754000000; 20; 114489338227757388521/5840888530302000000; 20; 1232797079008717771442215271/48366943538186816802000000; 118698981952749594118867/4830414814559754000000; 114489338227757388521/5840888530302000000; 1053909433374709813/54082301206500000; 8752431102689/450060759000];    
+ u0  = [69980, 178835, 4.135, 8.552];
+
+
 %%
 % In general, to improve computational efficiency, it is best practice to
 % provide an analytical Jacobian function for the prediction model. In this
@@ -51,8 +53,9 @@ x0 = [52814776030872794621339/2111078349043945281000; 104094200346052350023/4282
 % when the plant is stable and the primary objective is economic
 % optimization. Prediction horizon is |2|, which gives a prediction time is
 % 50 seconds.
-
-nlobj.PredictionHorizon = 20;                    % Prediction horizon
+Ts = 20;
+nlobj.Ts = Ts;                                  % Sample time
+nlobj.PredictionHorizon = 10;                    % Prediction horizon
 nlobj.ControlHorizon = 8;                       % Control horizon
 
 %%
@@ -120,9 +123,10 @@ nlobj.Optimization.ReplaceStandardCost = true;
 nlobj.Optimization.CustomEqConFcn = 'aircraftEqCon'; 
 nlobj.Optimization.CustomIneqConFcn = 'aircraftInEqCon';
 
+
 %% Simulink Model with Economic MPC Controller
 % Open the Simulink model.
-mdl = 'EconomicMPC_Simulink_Linear_mks_sep_5_cruise';
+mdl = 'linear_controllerlanding_nonlinear_plant_mks_sim';
 open_system(mdl)
 
 %% Scope figure changes
