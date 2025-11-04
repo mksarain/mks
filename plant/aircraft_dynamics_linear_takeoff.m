@@ -1,4 +1,4 @@
-function dxdt = aircraft_dynamics_linear(x,u)
+function dxdt = aircraft_dynamics_linear_takeoff(x,u)
 
  % Extract control inputs and disturbances from u
     u1 = u(1);  % Control input 1
